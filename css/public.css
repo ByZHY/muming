@@ -1,0 +1,129 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'pingFangSC-Medium';
+    src: url('../font/PingFang Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "pingFangSC-Medium";
+}
+ul,li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+input{
+	border: 0;
+	outline: none;
+	caret-color: #0670ef;
+}
+body {
+  	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+	background-color: #EFEFF4;
+}
+/*input:focus{color:#1378f6}*/
+footer{
+	width: 100%;
+	height: 49px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	border-top: 1px solid #eeeeee;
+	z-index: 100;
+}
+footer a{
+	width: 50%;
+	padding-top: 7px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+}
+.footericon{
+	width: 23px;
+	height: 23px;
+	background-image: url(../img/home_nor.png);
+	background-size: cover;
+	margin: 0 auto;
+}
+footer a.active{
+	color: #1378f6;
+}
+footer a.active .home{
+	background-image: url(../img/home_press.png);
+}
+.personal{
+	background-image: url(../img/wode_nor.png);
+}
+footer a.active .personal{
+	background-image: url(../img/wode_press.png);
+}
+#searchcontent{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	background: #f7f7f7;
+}
+.Tips_bg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 101;
+	display: none;
+}
+.Tips{
+	width: 80%;
+	border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	z-index: 101;
+	display: none;
+}
+.tipsmain{
+	width: 100%;
+	height: 120px;
+	padding: 20px 0;
+	border-radius: 10px;
+	background-color: white;
+	text-align: center;
+}
+.tipsmain img{
+	width: 30px;
+}
+.tipsmain h4{
+	color: #1378f6;
+	font-size: 16px;
+	margin: 10px;
+}
+.tipsmain label{
+	width: 75%;
+	color: #676767;
+	display: inline-block;
+	font-size: 14px;
+}
+.closetips{
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 25px;
+}
+.closetips img{
+	width: 25px;
+	height: 25px;
+}
