@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<a href="helloajax.txt">helloajax</a>
+		<script>
+			window.onload=function(){
+				document.getElementsByTagName("a")[0].onclick=function(){
+//					创建一个XMLHttpRequest对象
+					var request=new XMLHttpRequest();
+//					准备发送请求的数据:url;
+					var url=this.href;					
+					var method="GET";
+//					调用XMLHttpRequest对象的open方法
+					request.open(method,url);
+//					调用XMLHttpRequest对象的send方法
+					request.send(null);
+//					为XMLHttpRequest对象添加onreadystatechange响应函数
+					request.onreadystatechange=function(){
+						判断响应是否完成,XMLHttpRequest的对象的onreadystatechange属性值为4的时候
+						if(request.readyState==4){
+//							if(request.readyState==200||request.status==304){
+								alert(111);
+//								打印相应结果
+								alert(request.responseText);
+//							}
+						}
+					}
+					
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>
