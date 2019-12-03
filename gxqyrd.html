@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>高新企业认定</title>
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/area.js" ></script>
+		<script type="text/javascript" src="js/distpicker.data.js"></script>
+		<script type="text/javascript" src="js/distpicker.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 8%;
+				height: 100%;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				vertical-align: middle;
+				margin: 13px auto;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.fwsearch{
+				width: 16px;
+				height: 16px;
+				overflow: hidden;
+				position: absolute;
+				top: 14px;
+				right: 5%;
+			}
+			.fwsearch img{
+				width: 100%;
+			}
+			.checkpicker{
+				width: 95%;
+				height: 44px;
+				background: white;
+				position: fixed;
+				top: 44px;
+				z-index: 101;
+				padding: 0 5% 0 0;
+			}
+			.form-group{
+				width: 33%;
+				height: 44px;
+				float: left;
+				position: relative;
+			}
+			.form-group label{
+				width: 95%;
+				height: 44px;
+				line-height: 44px;
+				padding-right: 5%;
+				text-align: center;
+				background-image: url(img/down.png);
+				background-position: right center;
+				background-repeat: no-repeat;
+				background-size: 12px;
+				display: inline-block;
+				overflow: hidden;
+				font-size: 14px;
+				white-space: normal;
+			}
+			.form-group label span{
+				width: 95%;
+			    display: inherit;
+			    font-size: 14px;
+			    line-height: 20px;
+				white-space: normal;
+			}
+			.form-group select{
+				width:90%;
+				border: 0;
+				height: 44px;
+				line-height: 44px;
+				padding-right: 10%;
+				text-align: center;
+				text-align-last: center;
+				outline: none;
+				-webkit-appearance:none;
+				-webkit-appearance:none;
+				-moz-appearance: none;
+				-moz-appearance: none;
+				appearance:none;
+				background-image: url(img/down.png);
+				background-position: right center;
+				background-repeat: no-repeat;
+				background-size: 12px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 15px;
+				float: left;
+				direction: rtl;
+				opacity: 0;
+			}
+			/*.form-group select:hover{
+				color: #1378f6;
+				font-weight: bold;
+			}*/
+			.form-group select option{
+				text-align: center;
+				-webkit-appearance:none;
+				-moz-appearance: none;
+				-moz-appearance: none;
+				appearance:none;
+				text-align-last: center;
+				
+			}
+			.zc_list{
+				width: 100%;
+				background-color: white;		
+				margin-top: 98px;		
+			}
+			.zc_item{
+				width: 90%;
+				height: 70px;
+				line-height: 25px;
+				padding: 15px 0;
+				margin: 0 auto;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			.zc_item:last-child{
+				border-bottom: 0;
+			}
+			.zc_item a{
+				width: 100%;
+				display: inline-block;
+				color: #262626;
+			}
+			.zcl_title{
+				width: 100%;
+				font-size: 14px;				
+			} 
+			.zcl_title span{
+				border: 1px solid #1378f6;
+				color: #1378f6;
+				display: inline-block;
+				border-radius: 3px;
+				line-height: 16px;
+				padding: 0 3px;
+				font-size: 12px;
+				float: left;
+				margin-top: 3px;
+				margin-right: 5px;
+			}
+			.zc_item label{
+				float: right;
+				font-size: 12px;
+				color: #bbbbbb;
+			}
+			.nocontent{
+				color: #bdbdc3;
+				font-size: 14px;
+				text-align: center;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="index.html"><img src="img/icon_jiantou_white.png"/></a>
+			<h4>高新企业认定</h4>
+			<div class="fwsearch"><img src="img/Searchbar_search_white.png"/></div>
+		</header>
+		<div data-toggle="distpicker" class="checkpicker">
+			<div class="form-group">
+				<label><span>全国</span></label>
+				<select class="form-control" id="province1"></select>
+			</div>
+			<div class="form-group">
+				<label><span>市</span></label>
+				<select class="form-control" id="city1"></select>
+			</div>
+			<div class="form-group">
+				<label><span>区</span></label>
+				<select class="form-control" id="district1"></select>
+			</div>
+		</div>
+		<ul class="zc_list">
+			<li class="zc_item">
+				<a href="javascript:void(0)">
+					<div class="zcl_title">
+						<span>工商</span>
+						<p>火炬中心召开2017年全国高新技术企业认定管理工作会</p>
+					</div>
+					<label>2017-03-06</label>
+				</a>
+			</li>
+			<li class="zc_item">
+				<a href="javascript:void(0)">
+					<div class="zcl_title">
+						<span>工商</span>
+						<p>火炬中心召开2017年全国高新技术企业认定管理工作会</p>
+					</div>
+					<label>2017-03-06</label>
+				</a>
+			</li>
+		</ul>
+		<div class="swiper-no-swiping">
+			<div class="nocontent">没有任何相关内容</div>
+		</div>
+		<!--搜索界面-->
+		<div id="searchcontent"></div>			
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.form-group select').change(function(){
+				var provinceName = $("#province1 option:selected").text();
+				var cityName = $("#city1 option:selected").text();			 
+				var regionName = $("#district1 option:selected").text();
+				$('#province1').parent('.form-group').find("span").text(provinceName);
+				$('#city1').parent('.form-group').find("span").text(cityName);
+				$('#district1').parent('.form-group').find("span").text(regionName);
+			})
+		})
+	</script>
+	<script>
+		$('.fwsearch').click(function(){
+			var scrollTop = $(document).scrollTop();
+			$("#searchcontent").css({
+				'top':  scrollTop,
+			}).show();
+			$('#searchcontent').load("search.html")
+		})
+	</script>
+	
+</html>

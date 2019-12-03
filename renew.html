@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>代账续费</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #efeff4;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 15%;
+				height: 100%;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				padding-top: 54px;
+			}
+			.renew_top{
+				width: 90%;
+				padding: 0 5%;
+				height: 66px;
+				background: white;
+				overflow: hidden;
+				position: relative;
+				margin-bottom: 10px;
+			}
+			.renew_img{
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+				overflow: hidden;
+				float: left;
+				margin-top: 8px;
+				margin-right: 15px;
+			}
+			.renew_img img{
+				width: 100%;
+			}
+			.renew_top label{
+				width: 76%;
+				display: inline-block;
+				color: #262626;
+				font-size: 15px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				margin-top: 12px;
+			}
+			.renew_top span{
+				width: 76%;
+				display: inline-block;
+				color: #676767;
+				font-size: 13px;
+				float: left;
+			}
+			.renew_top span font{
+				color: #1378F6;
+			}
+			.huangguan{
+				width: 15px;
+				height: 15px;
+				background: url(img/icon_huangguan2_nor.png) no-repeat;
+				background-size: 15px;
+				position: absolute;
+				top: 5px;
+				left: 4%;
+				display: inline-block;
+			}
+			.Accountservice{
+				width: 100%;
+				background: white;
+			}
+			.Accountservice h4{
+				height: 38px;
+				line-height: 32px;
+				color: #676767;
+				font-weight: normal;
+				font-size: 13px;
+				padding-left: 5%;
+				position: relative;
+			}
+			.Accountservice h4:before{
+				content: '';
+				width: 2px;
+				height: 17px;
+				background: #1378f6;
+				position: absolute;
+				top: 8px;
+				left: 0;
+			}
+			.as_price{
+				width: 80%;
+				padding: 0 10%;
+				height: 38px;
+				line-height: 38px;
+				border-bottom: 1px solid #EFEFF4;
+			}
+			.as_price label{
+				font-size: 14px;
+				color: #262626;
+				display: inline-block;
+			}
+			.as_right{
+				float: right;
+			}
+			.as_right del{
+				color: #bdbdc3;
+				font-size: 12px;
+				margin-right: 8px;
+			}
+			.as_right span{
+				font-size: 14px;
+				font-weight: bold;
+				color: #1378f6;
+				display: inline-block;
+			}
+			.as_right font{
+				font-size: 14px;
+				color: #262626;
+			}
+			.as_xieyi {
+				width: 90%;
+				padding: 10px 0 10px 5%;
+				font-size: 12px;
+				overflow: hidden;
+			}
+			.as_xieyi input{
+				width: 15px;
+				height: 15px;
+				background-image: url(img/icon_dui_nor.png);
+				background-size: 15px;
+				-webkit-appearance: none;
+				border-radius: 15px;
+				float: left;
+				margin-top: 1px;
+				margin-right: 8px;
+			}
+			.as_xieyi input:checked{
+				background-image: url(img/icon_xuanze_nor.png);
+				background-size: 15px;
+			}
+			.as_xieyi p{
+				width: 92%;
+				color: #878787;
+				display: inline-block;
+				float: left;
+				overflow: hidden;
+				word-break: break-word;
+			}
+			.as_xieyi a{
+				color: #1378f6;
+			}
+			.as_btn{
+				width: 94%;
+				height: 45px;
+				line-height: 45px;
+				margin: 0 3%;
+				text-align: center;
+				display: inline-block;
+				border: 0;
+				background: url(img/btn_tijiao_disable.png);
+				background-size: cover;
+				border-radius: 5px;
+				color: white;
+				outline: none;
+				font-size: 16px;
+				position: absolute;
+				bottom: 30px;
+			}
+			.Tipsclose{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				border-top: 1px solid #EFEFF4;
+				display: inline-block;
+				color: #1274ee;
+				font-size: 14px;
+				font-weight: bold;
+				margin-top: 15px;
+			}
+			.tips_btn{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;				
+				border-top: 1px solid #efeff4;
+				margin-top: 16px;
+			}
+			.tips_btn a{
+				width: 48.5%;
+				display: inline-block;
+				text-align: center;
+				font-weight: bold;
+				color: #676767;
+				font-size: 14px;
+			}
+			.tips_btn .Agreeapply{
+				color: #1378f6;
+				border-left: 1px solid #efeff4;
+			}
+			.tipsmain label font{
+				color: #1378f6;
+			}
+			.noaccount{
+				width: 100%;
+				text-align: center;
+				margin-top: 70px;
+				font-size: 14px;
+				margin: 20px 0;
+				color: #bdbdc3;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="mine.html"><img src="img/icon_jiantou_white.png"/><label>我的</label></a>
+			<h4>代账续费</h4>
+		</header>
+		<div class="main">
+			<!--您尚未开通此业务-->
+			<div class="noaccount" style="display: none;">
+				<label>您尚未开通此业务<br>
+				如需代账请致电：025-85956707</label>
+			</div>
+			<div class="renew_top">
+				<div class="renew_img">
+					<img src="img/btn_xianmushenbao_nor.png"/>
+				</div>
+				<i class="huangguan"></i>
+				<label>吃个肉</label>
+				<span>您的代账有效期至<font>2019-02-20</font></span>
+			</div>
+			<div class="Accountservice">
+				<h4>代账服务</h4>
+				<div class="as_price">
+					<label>续费一年</label>
+					<div class="as_right">
+						<del>3000</del>
+						<span>2980</span>
+						<font>元</font>
+					</div>						
+				</div>
+				<div class="as_xieyi">
+					<input type="checkbox" id="agree" />
+					<p>我已经阅读并同意<a>《沐名企业服务平台代账续费协议》</a></p>					
+				</div>
+			</div>			
+			<button class="as_btn">立即续费</button>
+		</div>	
+		<!--代账即将到期提示框-->
+		<div class="Tips_bg prompt_bg"></div>
+		<div class="Tips prompt">
+			<div class="tipsmain">
+				<h4>代账即将到期</h4>
+				<label>您公司的代账服务即将到期，请及时续费。</label>	
+				<a class="Tipsclose" onclick="promptclose()">确认</a>
+			</div>		
+		</div>
+		<!--代账续费提示-->
+		<div class="Tips_bg" id="Tips_bg1"></div>
+		<div class="Tips" id="Tips1">
+			<div class="tipsmain">
+				<h4 id="already">代账续费提示</h4>
+				<label id="alcontent">确定以2400元的价格续费一年的公司代账吗？</label>
+				<div class="tips_btn">
+					<a class="refuseapply" onclick="promptclose()">取消</a>
+					<a class="Agreeapply">确定</a>
+				</div>
+			</div>
+		</div>
+		<!--代账续费成功-->
+		<div class="Tips_bg" id="Tips_bg2"></div>
+		<div class="Tips" id="Tips2">
+			<div class="tipsmain">
+				<img src="img/icon_wancheng_nor.png"/>
+				<h4>代账续费成功</h4>
+				<label>恭喜您续费成功，您的代账有效期至<font>2020-04-20</font>。</label>
+			</div>			
+			<a class="closetips"><img onclick="tipsclose()" src="img/close_guanbi_nor.png"/></a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//到期提示
+		function promptopen(){
+			$('.prompt_bg').show();
+			var top = ($(window).height() - $(".prompt").height()) / 2;
+			var scrollTop = $(document).scrollTop();
+			$(".prompt").css({
+				'top':  top+scrollTop,
+			}).show();
+		}
+		//提示框关闭
+		function promptclose(){
+			$('.Tips_bg').hide();
+			$('.Tips').hide();
+		}
+		//代账续费提示
+		function renewopen(){
+			$("#Tips_bg1").show();
+			var top = ($(window).height() - $("#Tips1").height()) / 2;
+			var scrollTop = $(document).scrollTop();
+			$("#Tips1").css({
+				'top':  top+scrollTop,
+			}).show();
+		}
+		//代账续费成功
+		function renewsucess(){
+			$("#Tips_bg2").show();
+			var top = ($(window).height() - $("#Tips2").height()) / 2;
+			var scrollTop = $(document).scrollTop();
+			$("#Tips2").css({
+				'top':  top+scrollTop,
+			}).show();
+		}
+		$('input').on('input propertychange',function(){
+	        if($('#agree').is(':checked')){
+	        	$('.as_btn').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+	        	$('.as_btn').attr("disabled",false); 
+		    }else{	
+		    	$('#agree').attr('checked',false);
+		        $('.as_btn').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});  
+	        	$('.as_btn').attr("disabled",true); 
+	        }
+	    });
+	    
+	</script>
+</html>
+

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>公司信息</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #EFEFF4;
+				overflow-x: hidden;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 25%;
+				height: 100%;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				padding-top: 54px;
+			}
+			.ci_nature{
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			.cin_list{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				border-bottom: 1px solid #efeff4;
+				padding: 0 5%;
+				background: white;
+			}
+			.cin_list label{
+				font-size: 15px;
+				font-weight: bold;
+				display: inline-block;
+			}
+			.cin_list span{
+				float: right;
+				text-align: right;
+				color: #BDBCBC;
+				font-size: 14px;
+			}
+			.gaoguan{
+				width: 30%;
+				height: 44px;
+				line-height: 44px;
+				text-align: right;
+				float: right;
+			}
+			.gaoguan img{
+				width: 8px;
+			}
+			.enclosure{
+				width: 100%;
+				background-color: white;
+				margin-bottom: 50px;
+			}
+			.enclosure h4{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				padding: 0 5%;
+				font-size: 15px;			
+			}
+			.enclosurelist{
+				width: 100%;
+				overflow: hidden;
+			}
+			.enclosurelist a{
+				width: 32.9%;
+				height: 100px;
+				float: left;
+				text-align: center;
+				display: inline-block;
+				border-bottom: 2px solid #EFEFF4;
+				border-right: 2px solid #EFEFF4;
+				color: #474747;
+				font-size: 13px;
+			}
+			.enclosurelist a:nth-of-type(3),
+			.enclosurelist a:nth-of-type(6),
+			.enclosurelist a:nth-of-type(9),
+			.enclosurelist a:nth-of-type(12),
+			.enclosurelist a:nth-of-type(15){
+				border-right: 0;
+			}
+			.enclosurelist a:nth-of-type(16){
+				border-bottom: 0;
+			}
+			.enclosurelist a:nth-of-type(1),
+			.enclosurelist a:nth-of-type(2),
+			.enclosurelist a:nth-of-type(3){
+				border-top: 2px solid #EFEFF4;
+			}
+			.enclosurelist a img{
+				width: 30px;
+				margin: 20px auto 5px auto;
+			}
+			.enclosurelist a label{
+				width: 100%;
+				display: inline-block;
+			}
+			.modifycontent{
+				width: 100%;
+				height: 100%;
+				background-color: #EFEFF4;
+				z-index: 102;
+				position: absolute;
+				top: 0;
+				right: -100%;
+			}
+			.mc_title{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				_position: relative;				
+				background: url(img/headerbg.png);
+				background-size: cover;
+				color: white;
+			}
+			.mc_title .mc_back{
+				width: 25%;
+				height: 44px;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.mc_title .mc_back img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.mc_title h4{
+				line-height: 44px;
+				text-align: center;
+			}
+			.mc_main{
+				width: 100%;
+				margin-top: 10px;
+			}
+			.mc_list{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				padding: 0 5%;
+				background-color: white;
+				border-bottom: 1px solid #f7f7f7;
+			}
+			.mc_list label{
+				font-weight: bold;
+				font-size: 15px;
+				color: #262626;
+			}
+			.mc_list span{
+				float: right;
+				text-align: right;
+				color: #B2B2B2;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="mine.html"><img src="img/icon_jiantou_white.png"/><label>我的</label></a>
+			<h4>公司信息</h4>
+		</header>
+		<div class="main">
+			<!--公司性质-->
+			<div class="ci_nature">
+				<div class="cin_list">
+					<label>公司性质</label>
+					<span>小规模纳税人</span>
+				</div>
+				<div class="cin_list">
+					<label>公司高管</label>
+					<a class="gaoguan" onclick="gaoguan()"><img src="img/icon_jiantou_nor.png"/></a>
+				</div>
+				<div class="cin_list">
+					<label>公司报税形式</label>
+					<span>月报</span>
+				</div>
+			</div>
+			<!--附件下载-->
+			<div class="enclosure">
+				<h4>附件下载</h4>
+				<div class="enclosurelist">
+					<a href="jacascript::void(0)">
+						<img src="img/icon_sheli_nor.png"/>
+						<label>营业执照</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_biangengtongzhishu_nor.png"/>
+						<label>设立通知书</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_zhizhao_nor.png"/>
+						<label>变更通知书</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_yinhang_nor.png"/>
+						<label>银行开户许可证</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_sanfangxieyi_nor.png"/>
+						<label>三方协议申请表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_duizhangmimadan_nor.png"/>
+						<label>对账单查询密码单</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_zengzhishui_nor.png"/>
+						<label>增值税申请表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_qiyesuodeshui_nor.png"/>
+						<label>企业所得税</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_geshui_nor.png"/>
+						<label>个税申请表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_yinhuashui_nor.png"/>
+						<label>印花税申请表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_chengjianshui_nor.png"/>
+						<label>城建税、教育附加税</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_zichan_nor.png"/>
+						<label>资产负债表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_lirunbiao_nor.png"/>
+						<label>利润表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_shebaoxinxi_nor.png"/>
+						<label>社保信息表</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_gongjijin_nor.png"/>
+						<label>公积金</label>
+					</a>
+					<a href="jacascript::void(0)">
+						<img src="img/icon_wenhuashiye_nor.png"/>
+						<label>文化事业建设费 </label>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--公司高管-->
+		<div class="modifycontent nicheng">
+			<div class="mc_title">
+				<a class="mc_back" onclick="back()"><img src="img/icon_jiantou_white.png"/><label>公司信息</label></a>
+				<h4>公司高管</h4>
+			</div>
+			<div class="mc_main">
+				<div class="mc_list">
+					<label>工商联络员</label>
+					<span>赵朝朝</span>
+				</div>
+				<div class="mc_list">
+					<label>财务负责人</label>
+					<span>赵朝朝</span>
+				</div>
+				<div class="mc_list">
+					<label>监事</label>
+					<span>赵朝朝</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//公司高管
+		function gaoguan(){
+			$('.modifycontent').animate({right:"0"},"fast");
+		}
+		function back(){
+			$('.modifycontent').animate({right:"-100%"},"fast")
+		}
+	</script>
+	
+</html>
