@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>公司注册</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			.header{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.header .searchback{
+				width: 8%;
+				height: 100%;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+			}
+			.header .searchback img{
+				width: 10px;
+				vertical-align: middle;
+				margin: 13px auto;
+			}
+			.header h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				margin-top: 54px;
+				margin-bottom: 30px;
+			}
+			.imformation{
+				width: 100%;
+				background: white;
+				padding-bottom: 40px;
+				margin-bottom: 10px;
+			}
+			.liucheng{
+				width: 90%;
+				padding: 0 5%;
+				overflow: hidden;
+			}
+			.imformation h4{
+				width: 90%;
+				color: #676767;
+				height: 44px;
+				line-height: 44px;
+				font-size: 16px;
+				position: relative;
+				border-bottom: 1px solid #efeff4;
+				margin-bottom: 40px;
+				margin-left: 5%;
+			}
+			.imformation h4:before{
+				content: '';
+				position: absolute;
+				top: 13px;
+				left: -5.5%;
+				width: 2px;
+				height: 17px;
+				background-color: #1378f6;
+			}
+			.i_list{
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				background-color: #ffffff;
+				border-radius: 6px;
+				border: solid 1px #d0d0d4;
+				margin-bottom: 8px;
+				position: relative;
+			}
+			.i_list label{
+				width: 28%;
+				height: 100%;
+				background-color: #efeff4;
+				display: inline-block;
+				text-align: center;
+				font-size: 13px;
+				font-weight: bold;
+				color: #676767;
+				float: left;
+				border-right: solid 1px #d0d0d4;
+				border-radius: 6px 0 0 6px;
+				background-image: url(img/xing.png);
+				background-repeat: no-repeat;
+				background-size: 8px;
+				background-position-x: 5px;
+				background-position-y: 5px;
+			}
+			@media only screen and (max-width: 320px) {
+				.i_list label{
+					font-size: 12px;
+				}
+			}
+			.i_list input{
+				width: 65%;
+				padding-left: 5%;
+			}
+			.listmain .i_list:nth-of-type(2) label,.listmain .i_list:nth-of-type(3) label{
+				background-image: none;
+			}
+			.i_main{
+				width: 90%;
+				padding: 0 5%;
+			}
+			.i_main p{
+				color: #ff0000;
+				font-size: 12px;
+			}
+			.i_main button,.submitBtn,.ShareholderBtn,.enterpriseBtn{
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				color: white;
+				border-radius: 5px;
+				border: 0;
+				font-size: 16px;
+				outline: none;
+				background: url(img/btn_tijiao_disable.png);
+				background-size: cover;
+				margin-top: 90px;
+			}
+			.enterpriseBtn{
+				background: url(img/btn_tijiao_default.png);
+				background-size: cover;
+				margin-bottom: 40px;
+			}
+			.listmain{
+				margin-bottom: 14px;
+			}
+			.lcitem{
+				width: 20%;
+				height: 65px;
+				padding: 2%;
+				float: left;
+				background-color: rgba(19,120,246,0.55);
+				box-shadow: 3px 3px 10px 0px rgba(36, 129, 244, 0.35);
+				border-radius: 13px;
+				text-align: center;
+				margin-right: 14%;
+				margin-bottom: 20px;
+				font-size: 12px;
+				position: relative;
+			}
+			.lcitem:nth-of-type(3),
+			.lcitem:nth-of-type(6),
+			.lcitem:nth-of-type(9),
+			.lcitem:nth-of-type(12){
+				margin-right: 0;
+			}
+			.lcitem label{
+				width: 100%;
+				height: 65px;
+				color: white;
+				line-height: 65px;
+				vertical-align: middle;
+				display: inline-block;
+				text-align: center;
+			}
+			.lcitem label span{
+				width: 100%;
+				line-height: 15px;
+				display: inherit;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.lcitem:after{
+				content: '';
+				position: absolute;
+				top: 31.5px;
+				right: -45%;
+				width: 22px;
+				height: 17px;
+				background-image: url(img/xuxianjiantou.png);
+				background-size: 22px;
+			}
+			.lcitem:nth-of-type(3):after,
+			.lcitem:nth-of-type(6):after,
+			.lcitem:nth-of-type(9):after,
+			.lcitem:nth-of-type(12):after,
+			.lcitem:nth-last-of-type(1):after{
+				display: none;
+			}
+			.txtlist{
+				margin: 0 auto;
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				background-color: #efeff4;
+				border-radius: 5px;
+				background-image: url(img/righticon.png);
+				background-repeat: no-repeat;
+				background-position: 95%;
+				background-size: 7px;
+				margin-bottom: 10px;
+			}
+			.txtlist label{
+				width: 96.5%;
+				height: 100%;
+				font-size: 14px;
+				color: #676767;
+				font-weight: bold;
+				display: inline-block;
+				padding-left: 3.5%;
+			}			
+			.loadpage{
+				position: fixed;
+			    width: 100%;
+			    height: 100%;
+			    background: #fff;
+			    z-index: 100;
+			    top: 0;
+			    right: -100%;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.loadheader{
+				position: absolute;
+			}
+			.loadmian{
+				padding: 10px 5% 0 5%;
+				width: 90%;
+				height: 90%;
+				margin-top: 44px;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.CompanyPersonnel .loadmian .i_list:nth-of-type(4),.CompanyPersonnel .loadmian .i_list:nth-of-type(8){
+				margin-bottom: 16px;
+			}
+			.submitBtn{
+				margin-bottom: 40px;
+			}
+			.i_list span{
+				position: absolute;
+				right: 10%;
+				top: 0;
+				font-size: 14px;
+			}
+			.sl_item{
+				margin-bottom: 16px;
+			}
+			.Shareholderlist .sl_item .i_list:nth-of-type(3) input{
+				width: 50%;
+			}
+			.ShareholderDelbg{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0,0,0,0.5);
+				z-index: 100;
+				display: none;
+			}
+			.ShareholderDel{
+				width: 100%;
+				min-height: 200px;
+				max-height: 500px;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				background: white;
+				border-radius: 15px 15px 0 0;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.ShareholderDel h4{
+				color: #676767;
+				height: 44px;
+				line-height: 44px;
+				font-size: 13px;
+				text-align: center;
+				font-weight: normal;
+			}
+			.SD_list{
+				width: 100%;
+				padding-bottom: 40px;				
+			}
+			.SD_list li{
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			.ShareholderDel .cencel{
+				position: fixed;
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				background: white;
+				bottom: 0;
+				left: 0;
+				text-align: center;
+				color: #9f9f9f;
+			}
+			.slbtn{
+				width: 100%;
+				text-align: center;
+			}
+			.slbtn a{
+				width: 30%;
+				height: 35px;
+				line-height: 35px;
+				border-radius: 5px;
+				text-align: center;
+				display: inline-block;
+				background: #0670ef;
+				color: white;
+				font-size: 14px;
+				margin: 0 9%;
+			}
+			.dels{
+				background: #f14444 !important;
+			}
+			.ShareholderBtn{
+				margin-top: 16px;
+				margin-bottom: 40px;
+			}
+			.Shareholdertxt{
+				margin-top: 90px;
+				font-size: 12px;
+				color: #f14444;
+			}
+			.enterprisemain .i_list input{
+				width: 50%;
+			}
+			.em_list{
+				height: 100px;
+			}
+			.emitem{
+				position: relative;
+			}
+			.emitem input[type="radio"]{
+				width: 17px;
+				height: 17px;
+				-webkit-appearance: none;
+				background-image: url(img/danxuan_btn_nor.png);
+				background-size: 17px;
+				float: left;
+				margin-top: 14px;
+				margin-left: 4%;
+				margin-right: 6px;
+				padding: 0;
+			}
+			.emitem input[type="radio"]:checked{
+				background-image: url(img/danxuan_btn_sel.png);
+				background-size: 17px;
+			}
+			.emitop{
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+			}
+			.emitem a{
+				font-size: 13px;
+				color: #c6c6c6;
+				font-weight: bold;
+				float: left;
+			}
+			.emitop input[type="text"]{
+				width: 45px;
+				float: left;
+				margin-top: 12px;
+				padding-right: 10px;
+			}
+			.emitop font{
+				position: absolute;
+				bottom: 0;
+				right: 10%;
+				font-size: 13px;
+				font-weight: bold;
+				color: #c6c6c6;
+			}
+			.address input[type="text"]{
+				width: 40%;
+				padding-right: 0;
+			}
+			.emitem textarea{
+				width: 60%;
+				height: 70px;
+				padding: 15px 5%;
+				border: 0;
+				outline: none;
+			}
+			.chapter input[type="checkbox"]{
+				width: 17px;
+				height: 17px;
+				-webkit-appearance: none;
+				background-image: url(img/duoxuan_btn_nor.png);
+				background-size: 17px;
+				float: left;
+				margin-top: 14px;
+				margin-left: 4%;
+				margin-right: 6px;
+				padding: 0;
+			}
+			.chapter input[type="checkbox"]:checked{
+				background-image: url(img/duoxuan_btn_sel.png);
+				background-size: 17px;
+			}
+			.chapter a{
+				width: 40px;
+				float: left;
+				font-size: 13px;
+				color: #c6c6c6;
+				font-weight: bold;
+			}
+			.em_list:nth-last-of-type(1){
+				margin-bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>		
+		<div class="header">
+			<a class="searchback" href="javascript:history.back(-1)"><img src="img/icon_jiantou_white.png"/></a>
+			<h4>公司信息填写</h4>
+		</div>
+		<div class="main">
+			<div class="imformation">
+				<h4>公司注册流程</h4>
+				<div class="liucheng">
+					<div class="lcitem">
+						<label><span>1.填写信息采集表</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>2.核名</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>3.补全新设公司信息</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>4.上传股东、办公地址等信息</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>5.股东法人签字</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>6.审核</span></label>
+					</div>
+					<div class="lcitem">
+						<label><span>7.拿执照</span></label>
+					</div>
+				</div>
+			</div>
+			<div class="imformation">
+				<h4>公司注册信息采集表</h4>
+				<form class="i_main" method="post">
+					<div class="listmain">
+						<div class="i_list">
+							<label>公司名称1</label>
+							<input type="text" class="name1" placeholder="请填写您要注册的公名司称1" />
+						</div>
+						<div class="i_list">
+							<label>公司名称2</label>
+							<input type="text" class="name2" placeholder="请填写您要注册的公司名称1" />
+						</div>
+						<div class="i_list">
+							<label>公司名称3</label>
+							<input type="text" class="name3" placeholder="请填写您要注册的公司名称1" />
+						</div>
+						<div class="i_list">
+							<label>联系人</label>
+							<input type="text" class="linkman" placeholder="请填写联系人" />
+						</div>
+						<div class="i_list">
+							<label>联系电话</label>
+							<input type="text" class="tel" placeholder="请填写联系电话" maxlength="11" />
+						</div>
+					</div>
+					<div class="txtlist">
+						<label class="enterprise">填写企业基本信息</label>
+					</div>
+					<div class="txtlist">
+						<label class="CPersonnel">填写企业人员信息</label>
+					</div>
+					<div class="txtlist">
+						<label class="EnShareholder">填写企业股东信息</label>
+					</div>
+					<p>注：另附办证所需法人、监事、财务、股东的身份证复印件。股东为公司的需提供营业执照的复印件。</p>
+					<p style="text-indent: 24px;">有注册地的需提供注册地的房屋租赁合同原件及产权证复印件。</p>
+					<button disabled="disabled" onclick="tipsopen()">提交公司信息</button>
+				</form>	
+			</div>	
+		</div>
+		<!--提示框-->
+		<div class="Tips_bg"></div>
+		<div class="Tips">
+			<div class="tipsmain">
+				<img src="img/icon_wancheng_nor.png"/>
+				<h4>公司信息提交成功</h4>
+				<label>递交过后工商审核人员会对经营范围进行整改融合，如有问题及时沟通。</label>
+			</div>			
+			<a class="closetips"><img onclick="tipsclose()" src="img/close_guanbi_nor.png"/></a>
+		</div>
+		<!--公司基本信息填写-->
+		<div class="loadpage enterprisemain">
+			<div class="header loadheader">
+				<a class="searchback back" href="javascript:;"><img src="img/icon_jiantou_white.png"/></a>
+				<h4>公司基本信息填写</h4>
+			</div>
+			<div class="loadmian">
+				<div class="i_list">
+					<label>注册资本</label>
+					<input type="text" class="farenname" placeholder="请填写法人姓名" />
+					<span>万</span>
+				</div>
+				<div class="i_list">
+					<label>出资时间</label>
+					<input type="text" class="moneytinme" placeholder="请填写法人身份证" maxlength="18" />
+					<span>年</span>
+				</div>
+				<div class="i_list em_list">
+					<label>营业期限</label>
+					<div class="emitem">
+						<div class="emitop">
+							<input type="radio" name="emitop" />
+							<a>长期</a>
+						</div>
+						<div class="emitop">
+							<input type="radio" name="emitop" />
+							<a>自申请之日起</a>
+							<input type="text" name="" id="" value="" />
+							<font>年</font>									
+						</div>
+					</div>
+				</div>
+				<div class="i_list em_list">
+					<label>注册地址</label>
+					<div class="emitem">
+						<div class="emitop">
+							<input type="radio" name="address" />
+							<a>无</a>
+						</div>
+						<div class="emitop address">
+							<input type="radio" name="address" />
+							<a>地址：</a>
+							<input type="text" name="" id="" value="" />
+						</div>
+					</div>
+				</div>
+				<div class="i_list em_list">
+					<label>实际经营地址</label>
+					<div class="emitem">
+						<div class="emitop">
+							<input type="radio" name="realaddress" />
+							<a>无</a>
+						</div>
+						<div class="emitop address">
+							<input type="radio" name="realaddress" />
+							<a>地址：</a>
+							<input type="text" name="" id="" value="" />
+						</div>
+					</div>
+				</div>
+				<div class="i_list em_list">
+					<label>经营范围</label>
+					<div class="emitem">
+						<textarea name="" rows="" cols=""></textarea>
+					</div>
+				</div>
+				<div class="i_list em_list">
+					<label>刻章</label>
+					<div class="chapter">
+						<input type="checkbox" />
+						<a>公章</a>
+						<input type="checkbox" />
+						<a>合同章</a>
+						<input type="checkbox" />
+						<a>发票章</a>
+						<input type="checkbox" />
+						<a>财务章</a>
+						<input type="checkbox" />
+						<a>法人章</a>
+					</div>
+				</div>		
+				<button class="enterpriseBtn" disabled="" onclick="tipsopen()">保存</button>
+			</div>
+		</div>
+		<!--公司人员信息填写-->
+		<div class="loadpage CompanyPersonnel">
+			<div class="header loadheader">
+				<a class="searchback back" href="javascript:;"><img src="img/icon_jiantou_white.png"/></a>
+				<h4>公司人员信息填写</h4>
+			</div>
+			<div class="loadmian">
+				<div class="i_list">
+					<label>法人姓名</label>
+					<input type="text" class="legalPerson" placeholder="请填写法人姓名" />
+				</div>
+				<div class="i_list">
+					<label>法人身份证</label>
+					<input type="text" class="legalPersonID" placeholder="请填写法人身份证" maxlength="18" />
+				</div>
+				<div class="i_list">
+					<label>法人电话</label>
+					<input type="text" class="legalPersonTel" placeholder="请填写法人手机号码" />
+				</div>
+				<div class="i_list">
+					<label>法人住所</label>
+					<input type="text" class="legalPersonAdress" placeholder="请填写法定代表人住所" />
+				</div>
+				<div class="i_list">
+					<label>监事姓名</label>
+					<input type="text" class="Supervisor" placeholder="请填写监事姓名"/>
+				</div>
+				<div class="i_list">
+					<label>监事身份证</label>
+					<input type="text" class="SupervisorID" placeholder="请填写监事身份证" maxlength="18" />
+				</div>
+				<div class="i_list">
+					<label>监事电话</label>
+					<input type="text" class="SupervisorTel" placeholder="请填写监事手机号码"/>
+				</div>
+				<div class="i_list">
+					<label>监事邮箱</label>
+					<input type="text" class="SupervisorMail" placeholder="请填写监事邮箱" />
+				</div>
+				<div class="i_list">
+					<label>财务姓名</label>
+					<input type="text" class="Finance" placeholder="请填写财务姓名"/>
+				</div>
+				<div class="i_list">
+					<label>财务身份证</label>
+					<input type="text" class="FinanceID" placeholder="请填写财务身份证" maxlength="18" />
+				</div>
+				<div class="i_list">
+					<label>财务电话</label>
+					<input type="text" class="FinanceTel" placeholder="请填写财务手机号码"/>
+				</div>
+				<div class="i_list">
+					<label>财务邮箱</label>
+					<input type="text" class="FinanceMail" placeholder="请填写财务邮箱"/>
+				</div>
+				<button class="submitBtn" disabled="disabled" onclick="tipsopen()">提交公司信息</button>
+			</div>
+		</div>
+		<!--公司股东信息填写-->
+		<div class="loadpage Shareholder">
+			<div class="header loadheader">
+				<a class="searchback back" href="javascript:;"><img src="img/icon_jiantou_white.png"/></a>
+				<h4>公司股东信息填写</h4>
+			</div>
+			<div class="loadmian">
+				<div class="Shareholderlist">
+					<div class="sl_item">
+						<div class="i_list">
+							<label>股东<font>1</font>姓名</label>
+							<input type="text" class="slinput" placeholder="请填写法人姓名" />
+						</div>
+						<div class="i_list">
+							<label>股东<font>1</font>身份证</label>
+							<input type="text" class="slinput" placeholder="请填写法人身份证" maxlength="18" />
+						</div>
+						<div class="i_list">
+							<label>股东<font>1</font>出资比例</label>
+							<input type="text" class="slinput" placeholder="请填写股东出资比例" />
+							<span>%</span>
+						</div>
+					</div>					
+				</div>			
+				<div class="slbtn">
+					<a class="adds" onclick="addShareholder()">添加股东</a>
+					<a class="dels" onclick="SHdel()">删除股东</a>
+				</div>				
+				<p class="Shareholdertxt">注：股东如果是单位，则股东姓名填写单位名称，身份证填写统一社会信用代码</p>
+				<button class="ShareholderBtn" disabled="disabled" onclick="tipsopen()">保存</button>
+			</div>
+		</div>
+		<!--删除股东-->
+		<div class="ShareholderDelbg">
+			<div class="ShareholderDel">
+				<h4>选择删除的股东</h4>
+				<ul class="SD_list">
+					<!--<li><a>股东<font>一</font></a></li>-->
+				</ul>
+				<a class="cencel">取消</a>
+			</div>
+		</div>		
+	</body>
+	<script type="text/javascript">
+		$('input').on('input propertychange',function(){
+	        if(($.trim($('.name1').val())!=="")&&($.trim($('.linkman').val())!=="")&&($.trim($('.tel').val())!=="")){
+	        	$('.i_main button').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+	        	$('.i_main button').attr("disabled",false); 
+		    }else if(($.trim($('.legalPerson').val())!=="")&&($.trim($('.legalPersonID').val())!=="")&&($.trim($('.legalPersonTel').val())!=="")&&($.trim($('.legalPersonAdress').val())!=="")&&($.trim($('.Supervisor').val())!=="")&&($.trim($('.SupervisorID').val())!=="")&&($.trim($('.SupervisorTel').val())!=="")&&($.trim($('.SupervisorMail').val())!=="")&&($.trim($('.Finance').val())!=="")&&($.trim($('.FinanceID').val())!=="")&&($.trim($('.FinanceTel').val())!=="")&&($.trim($('.FinanceMail').val())!=="")){
+	        	$('.submitBtn').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+	        	$('.submitBtn').attr("disabled",false); 
+		    }else if(($.trim($('.slinput').val())!=="")){
+	        	$('.ShareholderBtn').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+	        	$('.ShareholderBtn').attr("disabled",false); 
+		    }else{
+		        $('.i_main button').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});  
+	        	$('.i_main button').attr("disabled",true);
+		        $('.submitBtn').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});  
+	        	$('.submitBtn').attr("disabled",true);
+		        $('.ShareholderBtn').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});  
+	        	$('.ShareholderBtn').attr("disabled",true);
+	        }
+	    });
+	    //输入框获取焦点时，背景变成蓝色
+	    $('.i_list input').focus(function(){
+	    	$(this).siblings("label").css({"background-color":"#4494ff","color":"white"});
+	    	$(this).parent(".i_list").css({"border-color":"#4494ff"});
+	    })
+	    //输入框失去焦点时，背景变成灰色
+	    $('.i_list input').blur(function(){
+	    	$(this).siblings("label").css({"background-color":"#efeff4","color":"#676767"});
+	    	$(this).parent(".i_list").css({"border-color":"#d0d0d4"});
+	    })
+	    //企业基本信息
+	    $('.enterprise').click(function(){
+			$('.enterprisemain').animate({right:"0"},"fast")
+		})
+	    $('.enterprisemain .back').click(function(){
+			$('.enterprisemain').animate({right:"-100%"},"fast")
+		})
+	    //企业人员
+	    $('.CPersonnel').click(function(){
+			$('.CompanyPersonnel').animate({right:"0"},"fast")
+		})
+	    $('.CompanyPersonnel .back').click(function(){
+			$('.CompanyPersonnel').animate({right:"-100%"},"fast")
+		})
+	    //股东信息
+	    $('.EnShareholder').click(function(){
+			$('.Shareholder').animate({right:"0"},"fast")
+		})
+	    $('.Shareholder .back').click(function(){
+			$('.Shareholder').animate({right:"-100%"},"fast")
+		})
+	    //添加股东
+	    function addShareholder(){
+	    	var si=1;
+	    	si++;
+	    	var Shareholdernumber=$('.Shareholderlist .sl_item');
+			var addnum=Shareholdernumber.length+1;
+			var htmls = "<div class='sl_item'>"+
+						"<div class='i_list'>"+
+							"<label>股东<font>"+addnum+"</font>姓名</label>"+
+							"<input type='text' class='slinput' placeholder='请填写法人姓名' />"+
+						"</div>"+
+						"<div class='i_list'>"+
+							"<label>股东<font>"+addnum+"</font>身份证</label>"+
+							"<input type='text' class='slinput' placeholder='请填写法人身份证' maxlength='18' />"+
+						"</div>"+
+						"<div class='i_list'>"+
+							"<label>股东<font>"+addnum+"</font>出资比例</label>"+
+							"<input type='text' class='slinput' placeholder='请填写股东出资比例' />"+
+							"<span>%</span>"+
+						"</div>"+
+					"</div>";
+			$('.Shareholderlist').append(htmls);
+	    }
+	    function SHdel(){
+	    	var sh=0;
+	    	var htmls="";
+	    	$(".ShareholderDelbg").show();	    	
+	    	$('.Shareholderlist .sl_item').each(function(){
+				sh++;
+				htmls+="<li><a>股东<font>"+SectionToChinese(sh)+"</font></a></li>";
+			})
+	    	$('.SD_list').append(htmls);
+	    	//删除
+	    	$('.SD_list li').each(function(index) {
+                $(this).on('click', function() {
+                    $(this).remove();
+                    $('.SD_list').html("");
+                    $(".ShareholderDelbg").hide();	
+                    $('.Shareholderlist .sl_item').eq(index).remove();
+                    var sl_item = $('.sl_item');
+			       	for (var i = 0;i < sl_item.length;i++){
+			       		var fonts=sl_item.children().children().children();
+			        	sl_item[i] = i+1;
+			       		fonts.html(i+1);
+				   }
+                });
+            });
+            $('.cencel').on("click",function(){
+            	$(".ShareholderDelbg").hide();
+            	$('.SD_list').html("");
+            })
+	    }
+		function SectionToChinese(section) {
+			section;
+		    var chnNumChar = ["零","一", "二", "三", "四", "五", "六", "七", "八", "九","十","十一","十二","十三","十四","十五","十六","十七","十八","十九","二十"];
+		    return chnNumChar[section];
+		}
+	</script>
+</html>

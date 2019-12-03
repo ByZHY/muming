@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>照片</title>
+		<link rel="stylesheet" href="../css/swiper.min.css" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="../js/swiper.min.js" ></script>
+		<script type="text/javascript" src="../js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #000000;
+			}
+			header{
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 102;
+			}
+			header .p_back{
+				width: 90%;
+				height: 44px;
+				padding: 0 5%;
+			}
+			header .p_back img{
+				width: 10px;
+				vertical-align: middle;
+			}
+			.picture{
+				width: 100%;
+				height: 100%;
+			}
+			.picture img{
+				width: 100%;
+				margin-top: 44px;
+			}
+			.savepicture{
+				width: 100%;
+				height: 20px;
+				line-height: 20px;
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				color: #FFFFFF;
+				font-size: 14px;
+				display: inline-block;
+				text-align: center;
+				z-index: 10;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="p_back" href="javascript:history.back(-1)"><img src="../img/icon_jiantou_white.png"/></a>
+		</header>
+		<div class="picture">
+			<img src="../img/img3.jpg"/>
+		</div>
+		<span class="savepicture">长按保存图片</span>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function(){
+				var height=$(document).height();
+				var imgheight=$('.picture img').height();
+				$('.picture img').css({
+					"margin-top":(height-imgheight)/2,
+				})
+			},500)
+			
+		})
+	</script>
+	
+</html>

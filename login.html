@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>登录</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #fff;
+			}
+			header{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+			}
+			header .searchback{
+				width: 8%;
+				height: 100%;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+			}
+			header .searchback img{
+				width: 10px;
+				vertical-align: middle;
+				margin: 13px auto;
+			}
+			header h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				margin-top: 54px;
+				margin-bottom: 30px;
+			}
+			.logo{
+				width: 100%;
+				text-align: center;
+			}
+			.logo img{
+				width: 80px;
+				margin: 0 auto;
+			}
+			.logo label{
+				width: 100%;
+				display: inline-block;
+				font-weight: bold;
+				margin: 20px 0;
+			}
+			.login_main{
+				width: 84%;
+				padding: 0 8%;
+			}
+			.login_list{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #bdbdc3;
+				margin-bottom: 20px;
+			}
+			.login_list:nth-last-of-type(1){
+				margin-bottom: 10px;
+			}
+			.login_list img{
+				width: 16px;
+				vertical-align: middle;
+			}
+			.login_list input{
+				width: 80%;
+				margin-left: 8px;
+			}
+			#demo_img{
+				float: right;
+				margin-top: 13.5px;
+			}
+			#iflase{
+				height: 18px;
+				font-size: 13px;
+				color: #f21919;
+				display: inherit;
+			}
+			.logo_btn{
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				margin-top: 20px;
+				text-align: center;
+				color: white;
+				background: url(img/btn_tijiao_disable.png);
+				background-size: cover;
+				display: inline-block;		
+				border-radius: 3px;		
+			}
+			.login_bottom{
+				width: 84%;
+				height: 30px;
+				margin: 20px auto;
+			}
+			.login_bottom a{
+				float: left;
+				color: #878787;
+				font-size: 13px;
+			}
+			.login_bottom a:nth-of-type(2){
+				text-align: right;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>		
+		<header>
+			<a class="searchback"><img src="img/back_fanhui_nor.png"/></a>
+		</header>
+		<div class="main">
+			<div class="logo">
+				<img src="img/logo.png"/>
+				<label>沐名企业服务平台</label>
+			</div>
+			<form action="" method="post" class="login_main">
+				<div class="login_list">
+					<img src="img/icon_yonghuming_nor.png"/>
+					<input type="text" id="username" placeholder="请输入您的手机号" maxlength="25" />
+				</div>
+				<div class="login_list">
+					<img src="img/icon_mima_nor.png"/>
+					<input type="password" id="password" placeholder="登录密码" oninput="if(value.length>18)value=value.slice(0,18)"  />
+					<img id="demo_img" onclick="hideShowPsw()" src="img/closeeyes.png">
+				</div>
+				<span id="iflase"></span>
+				<a href="jacascript::void(0)" class="logo_btn">登录</a>
+			</form>
+			<div class="login_bottom">
+				<a href="jacascript::void(0)">注册</a>
+				<a href="jacascript::void(0)">忘记密码</a>
+			</div>
+		</div>
+		<!--提示框-->
+		<div class="Tips_bg"></div>
+		<div class="Tips">
+			<div class="tipsmain">
+				<img src="img/icon_wancheng_nor.png"/>
+				<h4>公司信息提交成功</h4>
+				<label>您已成功提交，我们的负责人将于1-3个工作日与您联系。</label>
+			</div>			
+			<a class="closetips"><img onclick="tipsclose()" src="img/close_guanbi_nor.png"/></a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$('input').on('input propertychange',function(){
+	        if(($.trim($('#username').val())!=="")&&($.trim($('#password').val())!=="")&&($.trim($('#password').val()).length>6)){
+	        	$('.logo_btn').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+		    }else{
+		        $('.logo_btn').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});     
+	        }
+	    });
+	    // 显示隐藏密码
+		var demoImg = document.getElementById("demo_img");
+		var Password = document.getElementById("password");
+		//隐藏text block，显示password block
+		function hideShowPsw() {
+			if(Password.type == "password") {
+				Password.type = "text";
+				demo_img.src = "img/openeyes.png";
+			} else {
+				Password.type = "password";
+				demo_img.src = "img/closeeyes.png";
+			}
+		}
+	</script>
+</html>

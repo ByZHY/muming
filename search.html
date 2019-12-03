@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>搜索</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			.header{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+			.search{
+				width: 80%;
+				height: 28px;
+				line-height: 28px;
+				background-color: #f0f3f5;
+				border-radius: 5px;
+				display: inline-block;
+				margin-top: 8px;
+				padding: 0 3%;
+			}
+			.search span{
+				width: 15px;
+				height: 15px;
+				display: inline-block;
+				margin-top: 2px;
+				margin-right: 5px;
+				float: left;
+			}
+			.search span img{
+				width: 100%;
+			}
+			.search input{
+				width: 90%;
+				border: 0;
+				outline: none;
+				background: #f0f3f5;
+			}
+			.header .cencel{
+				height: 100%;
+				float: right;
+				line-height: 44px;
+				color: #1378f6;
+				font-size: 14px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.searchbg{
+				width: 100%;
+				background: #f7f7f7;
+				height: 15px;
+				margin-top: 44px;
+			}
+			.searchmain{
+				width: 90%;
+				height: 92%;
+				background: white;
+				padding: 0 5%;
+				position: absolute;
+			}
+			.search_history,.search_hot{
+				width: 100%;
+				margin-top: 20px;
+			}
+			.search_history h4,.search_hot h4{
+				width: 100%;
+				color: #262626;
+				font-size: 14px;
+				font-weight: normal;
+			}
+			.search_history label,.search_hot label{
+				padding: 5px 10px;
+				border-radius: 5px;
+				background-color: #efeff4;
+				color: #676767;
+				display: inline-block;
+				margin-right: 5%;
+				margin-top: 10px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>		
+		<div class="header">
+			<a class="search" href="javascript:void(0)">
+				<span><img src="img/Searchbar_search_nor.png"/></span>
+				<form action="javascript:;" id="myform" onsubmit="return false;">
+					<input id="search" type="search" placeholder="请输入您要办理的业务,如:公司注册" />
+				</form>				
+			</a>
+			<a class="cencel">取消</a>
+		</div>
+		<div class="searchbg"></div>
+		<div class="searchmain">
+			<div class="search_history">
+				<h4>历史搜索</h4>
+				<label>工商财税</label>
+				<label>工商财税</label>
+				<label>工商财税</label>
+			</div>
+			<div class="search_hot">
+				<h4>热门搜索</h4>
+				<label>工商财税</label>
+				<label>项目申报</label>
+				<label>高新企业认定</label>
+				<label>项目申报</label>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("#search").on('keypress', function(e) {
+	        var keycode = e.keyCode;
+	        //获取搜索框的值
+	        var searchContent = $(this).val();
+	        if (keycode == '13') {
+	            e.preventDefault();
+	            //请求搜索接口
+	            if (searchContent == '') {
+	                alert('请输入检索内容！');
+	            } else {
+	                alert(searchContent);
+	            }
+	        }
+	    });
+		$(document).ready(function(){
+			$('.search input').focus();
+		})
+		$('.cencel').click(function(){
+			$('#searchcontent').hide();			
+			$("body").css({
+				'overflow':  '',
+			});
+		})
+	</script>
+</html>

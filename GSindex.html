@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>沐名企服</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			header{
+				width: 100%;
+				position: relative;
+			}
+			.my_top{
+				width: 90%;
+				height: 120px;
+				padding: 0 5%;
+				background: url(img/img_wode_nor.png);
+				background-size: cover;	
+				position: relative;
+			}
+			.myhref{
+				width: 100%;
+				height: 58px;
+				line-height: 58px;
+				color: white;
+				display: inline-block;
+				position: relative;
+				margin-top: 31px;
+			}
+			.myhref:after{
+				content: '';
+				position: absolute;
+				top: 22px;
+				right: 0;
+				width: 8px;
+				height: 14px;
+				background: url(img/icon_jiantoubaise_nor.png);
+				background-size: 8px;
+			}
+			.my_touxiang{
+				width: 58px;
+				height: 58px;
+				overflow: hidden;
+				border-radius: 30px;
+				float: left;
+			}
+			.my_touxiang img{
+				width: 100%;
+			}
+			.my_top a label{
+				font-size: 16px;
+				font-weight: bold;
+				margin-left: 10px;
+			}
+			.UDpawBtn{
+				float: right;
+				font-size: 15px;
+				margin-right: 20px;
+			}
+			.main{
+				width: 100%;
+				margin-top: -5px;
+				position: relative;
+				overflow: hidden;
+				padding-bottom: 80px;
+			}
+			.typemain{
+				width: 100%;
+				background-color: white;
+				margin-bottom: 10px;
+			}
+			.typemain h4{
+				width: 84%;
+				height: 45px;
+				line-height: 58px;
+				padding: 0 8%;
+				border-bottom: 1px solid #efeff4;
+				color: #424242;
+				font-size: 20px;
+				position: relative;
+				font-size: 16px;
+			}
+			.typemain h4:before{
+				content: '';
+				position: absolute;
+				left: 5%;
+				top: 22px;
+				width: 2px;
+				height: 15px;
+				background-color: #1378f6;
+			}
+			.mianlist{
+				width: 90%;
+				padding: 6% 5% 0 5%;
+				overflow: hidden;
+			}
+			.mianlist li{
+				width: 25%;
+				float: left;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.mianlist li a{
+				width: 100%;
+				display: inline-block;
+			}
+			.list_img{
+				width: 100%;
+			}
+			.list_img img{
+				width: 65%;
+			}
+			.mianlist li a label{
+				font-size: 14px;
+				display: inline-block;
+				color: #262626;
+			}
+			.zhengce{
+				width: 90%;
+				padding: 0 5%;
+				background: white;
+			}
+			.zc_title{
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+			}
+			.zc_title label{
+				font-size: 18px;
+				font-weight: bold;
+				color: #424242;
+			}
+			.zc_title a{
+				width: 50px;
+				text-align: left;
+				float: right;
+				color: #676767;
+				font-size: 14px;
+				position: relative;
+			}
+			.zc_title a:after{
+				content: '';
+				width: 8px;
+				height: 14px;
+				position: absolute;
+				top: 18px;
+				right: 0;
+				background-image: url(img/icon_jiantou_nor.png);
+				background-size: 8px;
+			}
+			.zc_list{
+				width: 100%;
+				overflow: hidden;
+			}
+			.zc_list li{
+				width: 45%;
+				float: left;
+				margin-bottom: 15px;
+			}
+			.zc_list li:nth-child(even){
+				margin-left: 8%;
+			}
+			.zcl_img{
+				width: 100%;
+				max-height: 110px;
+				overflow: hidden;
+			}
+			.zcl_img img{
+				width: 100%;
+			}
+			.zc_list li h4{
+				color: #535353;
+				font-size: 14px;
+				font-weight: normal;
+				word-break:break-all;
+				display:-webkit-box;
+				-webkit-line-clamp:2;
+				-webkit-box-orient:vertical;
+				overflow:hidden;
+			}
+			.zc_list li label{
+				border: 1px solid #1378f6;
+				color: #1378f6;
+				border-radius: 3px;
+				font-size: 12px;
+				float: right;
+			}
+			.uploadsuccess{
+				width: 140px;
+				height: 90px;
+				background-color: rgba(0,0,0,0.8);
+				border-radius: 5px;
+				text-align: center;
+				z-index: 102;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -45px;
+				margin-left: -70px;
+				display: none;
+			}
+			.uploadsuccess img{
+				width: 30px;
+				margin: 20px auto 0 auto;
+			}
+			.uploadsuccess label{
+				width: 100%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+			}
+			.tips_btn{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;				
+				border-top: 1px solid #efeff4;
+				margin-top: 16px;
+			}
+			.tips_btn a{
+				width: 48.5%;
+				display: inline-block;
+				text-align: center;
+				font-weight: bold;
+				color: #676767;
+				font-size: 14px;
+			}
+			.tips_btn .Agreeapply{
+				color: #1378f6;
+				border-left: 1px solid #efeff4;
+			}
+			.tipsmain label{
+				height: 40px;
+			}
+			.tipsmain label font{
+				color: #1378f6;
+			}
+		</style>
+	</head>
+	<body>				
+		<div class="main">
+			<!--头像-->
+			<div class="my_top">
+				<a href="personal.html" class="myhref">
+					<div class="my_touxiang">
+						<img src="img/image_touxiang_nor.png"/>
+					</div>					
+					<label>小孩子</label>
+					<span class="UDpawBtn">修改密码</span>
+				</a>
+			</div>
+			<!--工商财税-->
+			<div class="typemain">
+				<h4>工商财税</h4>
+				<ul class="mianlist">
+					<li>
+						<a href="gszc.html">
+							<div class="list_img">
+								<img src="img/btn_gongsizhuce_nor.png"/>
+							</div>
+							<label>公司注册</label>
+						</a>
+					</li>
+					<li>
+						<a href="gsdz.html">
+							<div class="list_img">
+								<img src="img/btn_gongsidaizhang_nor.png"/>
+							</div>
+							<label>公司代账</label>
+						</a>
+					</li>
+					<li>
+						<a href="sbkh.html">
+							<div class="list_img">
+								<img src="img/btn_shebaokaihu_nor.png"/>
+							</div>
+							<label>社保开户</label>
+						</a>
+					</li>
+					<li>
+						<a href="gsbg.html">
+							<div class="list_img">
+								<img src="img/btn_gongsibiangeng_nor.png"/>
+							</div>
+							<label>公司变更</label>
+						</a>
+					</li>
+					<li>
+						<a href="gszx.html">
+							<div class="list_img">
+								<img src="img/btn_gongsizhuxiao_nor.png"/>
+							</div>
+							<label>公司注销</label>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--知识产权-->
+			<div class="typemain">
+				<h4>知识产权</h4>
+				<ul class="mianlist">
+					<li>
+						<a href="sbzc.html">
+							<div class="list_img">
+								<img src="img/btn_shangbiaozhuanrang_nor.png"/>
+							</div>
+							<label>商标注册</label>
+						</a>
+					</li>
+					<li>
+						<a href="sbzr.html">
+							<div class="list_img">
+								<img src="img/btn_shangbiaozhuanrang_nor.png"/>
+							</div>
+							<label>商标转让</label>
+						</a>
+					</li>
+					<li>
+						<a href="zlsq.html">
+							<div class="list_img">
+								<img src="img/btn_zhuanlishenqing_nor.png"/>
+							</div>
+							<label>专利申请</label>
+						</a>
+					</li>
+					<li>
+						<a href="zlzr.html">
+							<div class="list_img">
+								<img src="img/btn_zhuanlizhuanrang_nor.png"/>
+							</div>
+							<label>专利转让</label>
+						</a>
+					</li>
+					<li>
+						<a href="zzrz.html">
+							<div class="list_img">
+								<img src="img/btn_zizhirenzheng_nor.png"/>
+							</div>
+							<label>资质认证</label>
+						</a>
+					</li>
+					<li>
+						<a href="bqdj.html">
+							<div class="list_img">
+								<img src="img/btn_banquandengji_nor.png"/>
+							</div>
+							<label>版权登记</label>
+						</a>
+					</li>
+					<li>
+						<a href="zzqdj.html">
+							<div class="list_img">
+								<img src="img/btn_zhuzuoquandengji_nor.png"/>
+							</div>
+							<label>著作权登记</label>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--科技服务-->
+			<div class="typemain">
+				<h4>科技服务</h4>
+				<ul class="mianlist">
+					<li>
+						<a href="xmsb.html">
+							<div class="list_img">
+								<img src="img/btn_xianmushenbao_nor.png"/>
+							</div>
+							<label>项目申报</label>
+						</a>
+					</li>
+					<li>
+						<a href="txrz.html">
+							<div class="list_img">
+								<img src="img/btn_tixirenzheng_nor.png"/>
+							</div>
+							<label>体系认证</label>
+						</a>
+					</li>
+					<li>
+						<a href="gxqyrd.html">
+							<div class="list_img">
+								<img src="img/btn_gaoxinqiyerending_nor.png"/>
+							</div>
+							<label>高新企业认定</label>
+						</a>
+					</li>
+					<li>
+						<a href="zfzc.html">
+							<div class="list_img">
+								<img src="img/btn_zhengfuzhengce_nor.png"/>
+							</div>
+							<label>政府政策</label>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--搜索界面-->
+		<div id="searchcontent"></div>			
+		<!--底部-->
+		<footer>
+			<a class="active">
+				<div class="footericon home"></div>
+				<label>沐名企服</label>
+			</a>
+			<a href="mine.html">
+				<div class="footericon personal"></div>
+				<label>我的</label>
+			</a>
+		</footer>
+		<!--修改初始密码-->
+		<div class="Tips_bg" id="Tips_bg1"></div>
+		<div class="Tips" id="Tips1">
+			<div class="tipsmain">
+				<h4 id="already">修改初始密码</h4>
+				<label id="alcontent">为了安全起见，请修改您的初始密码</label>
+				<div class="tips_btn">
+					<a class="refuseapply" onclick="Moclose()">取消</a>
+					<a class="Agreeapply">修改</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Moopen();
+		//代账续费提示
+		function Moopen(){
+			$("#Tips_bg1").show();
+			var top = ($(window).height() - $("#Tips1").height()) / 2;
+			var scrollTop = $(document).scrollTop();
+			$("#Tips1").css({
+				'top':  top+scrollTop,
+			}).show();
+		}
+		//提示框关闭
+		function Moclose(){
+			$('.Tips_bg').hide();
+			$('.Tips').hide();
+		}
+	</script>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>营业执照</title>
+		<link rel="stylesheet" href="../css/swiper.min.css" />
+		<link rel="stylesheet" href="../css/public.css" />
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="../js/swiper.min.js" ></script>
+		<script type="text/javascript" src="../js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #EFEFF4;
+				overflow-x: hidden;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(../img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 25%;
+				height: 100%;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				padding-top: 54px;
+			}
+			.nocontent{
+				width: 100%;
+				text-align: center;
+				color: #BDBDC3;
+				font-size: 13px;
+				margin-top: 15px;
+			}
+			.yyzzlist{
+				width: 94%;
+				margin: 0 3%;
+				margin-bottom: 10px;
+			}
+			.yyzzlist:last-child{
+				margin-bottom: 40px;
+			}
+			.yyzzlist a{
+				width: 95%;
+				padding: 18px 0 18px 5%;
+				display: inline-block;
+				background: url(../img/icon_jiantou_nor.png) no-repeat;
+				background-size: 8px;
+				background-position: 95% center;
+				background-color: #ffffff;
+				border-radius: 7px;				
+			}
+			.yl_img{
+				width: 53px;
+				height: 53px;
+				overflow: hidden;
+				border-radius: 5px;
+				float: left;
+				margin-right: 10px;
+			}
+			.yl_img img{
+				width: 100%;
+			}
+			.ylcompanyname{
+				width: 72%;
+				float: left;
+				color: #262626;
+				font-size: 16px;
+				font-weight: bold;
+				margin-bottom: 13px;
+			}
+			.ylcompanyname label{
+				width: 72%;
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.yyzzlist span{
+				width: 72%;
+				float: left;
+				color: #bdbdc3;
+				font-size: 12px;
+				display: inline-block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="javascript:history.back(-1)"><img src="../img/icon_jiantou_white.png"/><label>公司信息</label></a>
+			<h4>营业执照</h4>
+		</header>
+		<div class="main">
+			<!--营业执照列表-->
+			<div class="nocontent" style="display: none;">暂时没有任何信息可以查询哦~</div>
+			<div class="yyzzlist">
+				<a href="picture.html">
+					<div class="yl_img">
+						<img src="../img/btn_xianmushenbao_nor.png"/>
+					</div>
+					<div class="ylcompanyname">
+						<label>营业执照-正本</label>
+					</div>					
+					<span>法人代表：赵朝朝</span>
+				</a>
+			</div>
+			<div class="yyzzlist">
+				<a href="javascript::void(0)">
+					<div class="yl_img">
+						<img src="../img/btn_xianmushenbao_nor.png"/>
+					</div>
+					<div class="ylcompanyname">
+						<label>营业执照-副本</label>
+					</div>					
+					<span>法人代表：赵朝朝</span>
+				</a>
+			</div>
+		</div>		
+	</body>
+	
+</html>

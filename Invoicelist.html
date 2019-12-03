@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>发票列表</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #EFEFF4;
+				overflow: hidden;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 15%;
+				height: 100%;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				padding-top: 54px;
+			}
+			.invoicetitle{
+				width: 90%;
+				padding: 0 5%;
+				height: 35px;
+				line-height: 35px;
+				margin-bottom: 5px;
+			}
+			.invoicetitle label{
+				font-weight: bold;
+				color: #262626;
+				font-size: 16px;
+			}
+			.invoicetitle span{
+				float: right;
+				color: #676767;
+				font-size: 14px;#1378f6
+			}
+			.invoicetitle span font{
+				color: #1378f6;
+			}
+			.invoicelist{
+				width: 92%;
+				height: 150px;
+				margin: 0 4%;
+				background-color: #fff;
+				border: solid 1px #dadada;;
+				box-shadow: 0 0 10px 2px rgba(218, 215, 215, 0.4);
+				position: relative;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+			}
+			.invoicelist:last-child{
+				margin-bottom: 40px;
+			}
+			.invoicelist a{
+				width: 100%;
+				display: inline-block;
+			}
+			.il_top{
+				width: 90%;
+				height: 45px;
+				line-height: 45px;
+				margin: 0 5%;
+			}
+			.ilt_img{
+				width: 30px;
+				height: 30px;
+				overflow: hidden;
+				border-radius: 15px;
+				float: left;
+				margin-top: 8px;
+				margin-right: 10px;
+			}
+			.il_top label{
+				color: #262626;
+				font-size: 17px;
+				font-weight: bold;
+			}
+			.ilt_img img{
+				width: 100%;
+			}
+			.line{
+				width: 100.4%;
+				height: 17px;
+				position: absolute;
+				top: 45px;
+				left: -0.2%;
+				background: url(img/img_fapiao_nor2.png) no-repeat;
+				background-size: 100%;
+			}
+			.invoiceitem{
+				width: 90%;
+				margin: 0 5%;
+				margin-top: 17px;
+			}
+			.invoiceitem li{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #676767;
+			}
+			.invoiceitem li span{
+				width: 75%;
+				color: #262626;
+				float: right;
+				text-align: right;
+				overflow: hidden;				
+			    text-overflow:ellipsis;
+			    white-space:nowrap;
+			}
+			.nomore{
+				width: 100%;
+				height: 20px;
+				text-align: center;
+				color: #676767;
+				font-size: 14px;
+				margin-top: 40px;
+			}
+			.noaccount{
+				width: 100%;
+				text-align: center;
+				margin-top: 70px;
+				font-size: 14px;
+				margin: 20px 0;
+				color: #bdbdc3;
+			}
+			.Invoicebtn{
+				width: 100%;
+				text-align: center;
+				position: fixed;
+				left: 0;
+				bottom: 30px;
+			}
+			.Invoicebtn a{
+				width: 90%;
+				height: 45px;
+				line-height: 45px;
+				border-radius: 5px;
+				background: url(img/btn_tijiao_default.png);
+				background-size: cover;
+				display: inline-block;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="#" onClick="javascript:history.back(-1);"><img src="img/icon_jiantou_white.png"/></a>
+			<h4>发票列表</h4>
+		</header>
+		<div class="main">
+			<!--暂无任何发票信息-->
+			<div class="noaccount" style="display: none;">暂无任何发票信息</div>
+			<div class="invoicetitle">
+				<label>我的发票</label>
+				<span>共<font>2</font>张</span>
+			</div>
+			<!--发票列表-->
+			<div class="invoicelist">
+				<a href="javascript::void(0)">
+					<div class="il_top">
+						<div class="ilt_img">
+							<img src="img/btn_gongsinianjian_nor.png"/>
+						</div>
+						<label>南京疯狂的巴哥有限公司</label>
+					</div>
+					<div class="line"></div>
+					<ul class="invoiceitem">
+						<li>
+							<label>购方名称</label>
+							<span>吃个肉</span>
+						</li>
+						<li>
+							<label>开票金额</label>
+							<span>1200.00</span>
+						</li>
+						<li>
+							<label>开票时间</label>
+							<span>2018-11-11</span>
+						</li>
+					</ul>
+				</a>
+			</div>
+			<div class="invoicelist">
+				<div class="il_top">
+					<div class="ilt_img">
+						<img src="img/btn_gongsinianjian_nor.png"/>
+					</div>
+					<label>南京疯狂的巴哥有限公司</label>
+				</div>
+				<div class="line"></div>
+				<ul class="invoiceitem">
+					<li>
+						<label>购方名称</label>
+						<span>吃个肉</span>
+					</li>
+					<li>
+						<label>开票金额</label>
+						<span>1200.00</span>
+					</li>
+					<li>
+						<label>开票时间</label>
+						<span>2018-11-11</span>
+					</li>
+				</ul>
+			</div>
+			<p class="nomore">没有更多发票了哦</p>
+			<div class="Invoicebtn">
+				<a href="invoiceApply.html">我要开票</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>项目申报</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background-color: #fff;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 8%;
+				height: 100%;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				vertical-align: middle;
+				margin: 13px auto;
+			}
+			.headerbg h4{
+				width: 80%;
+				line-height: 44px;
+				text-align: center;
+				color: white;
+				overflow:hidden;
+			    text-overflow:ellipsis;
+			    white-space:nowrap;
+			    margin-left: 10%;
+			}
+			.fwsearch{
+				width: 16px;
+				height: 16px;
+				overflow: hidden;
+				position: absolute;
+				top: 14px;
+				right: 5%;
+			}
+			.fwsearch img{
+				width: 100%;
+			}
+			.detailsmain{
+				width: 94%;
+				padding: 54px 3%;
+			}
+			.dm_top{
+				width: 90%;
+				margin: 0 auto;
+			}
+			.dm_top h4{
+				font-size: 18px;
+				line-height: 30px;
+				margin-bottom: 10px;
+			}
+			.dm_top label,.dm_top span{
+				color: #676767;
+				font-size: 14px;
+				display: inline-block;
+				margin-top: 10px;
+			}
+			.dm_top span{
+				float: right;
+				margin-top: 12px;
+			}
+			.dm_top p{
+				display: table;
+				margin-top: 5px;
+				border: 1px solid #1378f6;
+				color: #1378f6;
+				padding: 0 5px;
+				border-radius: 3px;
+				font-size: 12px;
+			}
+			.dm_body{
+				width: 90%;
+				margin: 0 auto;
+				margin-top: 20px;				
+			}
+			.dm_body img{
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			.dm_body p{
+				font-size: 14px;
+				color: #676767;
+				line-height: 25px;
+				text-indent: 28px;
+			}
+			.dm_body a{
+				color: #1378f6;
+				text-decoration: underline;
+				font-size: 13px;
+				margin-top: 30px;
+				display: inline-block;
+			}
+			.hrefbtn{
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				color: white;
+				text-align: center;
+				background: url(img/btn_tijiao_default.png);
+				background-size: cover;
+				border-radius: 5px;
+				display: inline-block;
+				margin-top: 50px;
+			}
+			.i_main{
+				width: 100%;
+			}
+			.submitBtn{
+				width: 90%;
+				height: 45px;
+				line-height: 45px;
+				color: white;
+				border-radius: 5px;
+				border: 0;
+				font-size: 16px;
+				outline: none;
+				background: url(img/btn_tijiao_disable.png);
+				background-size: cover;
+				margin: 90px 5% 0 5%;
+			}
+			.loadpage{
+				position: fixed;
+			    width: 100%;
+			    height: 100%;
+			    background: #efeff4;
+			    z-index: 100;
+			    top: 0;
+			    right: -100%;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.header{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.header .searchback{
+				width: 8%;
+				height: 100%;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+			}
+			.header .searchback img{
+				width: 10px;
+				vertical-align: middle;
+				margin: 13px auto;
+			}
+			.header h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.loadmian{
+				padding-top: 10px;
+				width: 100%;
+				height: 90%;
+				margin-top: 44px;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.i_list{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				border-bottom: solid 1px #f7f7f7;
+				background-color: white;
+				padding: 0 5%;
+			}
+			.i_list label{
+				width: 22%;
+				display: inline-block;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+				color: #676767;
+				float: left;
+				border-radius: 6px 0 0 6px;
+				text-align: left;
+			}
+			.i_list input{
+				width: 75%;
+				margin-top: 12.5px;
+				float: right;
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="javascript:history.back(-1)"><img src="img/icon_jiantou_white.png"/></a>
+			<h4>火炬中心召开2017年全国高新技术企业认定管理工作会</h4>
+		</header>
+		<div class="detailsmain">
+			<div class="dm_top">
+				<h4>火炬中心召开2017年全国高新技术企业认定管理工作会</h4>
+				<p>鼓楼区</p>
+				<label>来源：高新企业认定管理工作网</label>
+				<span>2017-03-06</span>
+			</div>
+			<div class="dm_body">
+				<img src="img/img_zhengfuzhengce4_nor.png"/>
+				<p>2017年3月1日和3日，全国高新技术企业认定管理工作会分别在广州和重庆召开。36个省市科技部门主管高新技术企业认定管理工作的副厅级领导及相关人员参加了会议。会议通报了2016年全国高新技术企业认定管理工作的总体情况，充分肯定了36个地方一年来辛勤的工作和所取得的成绩，部署了今年高企认定管理工作。<p>
+			    <p>各地参会代表就高企政策的执行情况及遇到的问题进行了充分交流，均表示高企工作已成为各地实现创新驱动发展战略的重要抓手，2017年将是高企工作树标提质的关键之年。他们表示将对此次会议精神认真学习，统筹安排，尽早启动本年度工作，全力推进高新技术企业认定管理工作健康快速发展！ <p>
+			    <p>最后，火炬中心党委书记翟立新指出，2017年高新技术企业认定管理工作要坚持“三个并重”——“标准和程序并重；认定和监管并重；培育和服务并重”，落实“五个加强”——“加强宣讲培训，准确把握政策；加强认定管理，树标提质；加强统计分析，用数据支撑决策；加强认定前培育，增加源头供给；加强认定后服务，落实税收优惠”。</p>
+				<a>点此访问原文链接</a>
+			</div>
+			<a class="hrefbtn">我要申报</a>
+		</div>
+		<div class="loadpage CompanyPersonnel">
+			<div class="header loadheader">
+				<a class="searchback back" href="javascript:;"><img src="img/icon_jiantou_white.png"/></a>
+				<h4>公司信息填写</h4>
+			</div>
+			<div class="loadmian">
+				<form class="i_main" method="post">
+					<div class="i_list">
+						<label>公司名称</label>
+						<input type="text" class="name" placeholder="请填写您的公司名称" />
+					</div>
+					<div class="i_list">
+						<label>联系人</label>
+						<input type="text" class="linkman" placeholder="请填写联系人" />
+					</div>
+					<div class="i_list">
+						<label>联系电话</label>
+						<input type="text" class="tel" placeholder="请填写联系电话" />
+					</div>
+					<button class="submitBtn" disabled="disabled" onclick="tipsopen()">提交公司信息</button>
+				</form>
+			</div>
+		</div>
+		<!--提示框-->
+		<div class="Tips_bg"></div>
+		<div class="Tips">
+			<div class="tipsmain">
+				<img src="img/icon_wancheng_nor.png"/>
+				<h4>公司信息提交成功</h4>
+				<label>您已成功提交，我们的负责人将于1-3个工作日与您联系。</label>
+			</div>			
+			<a class="closetips"><img onclick="tipsclose()" src="img/close_guanbi_nor.png"/></a>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$('input').on('input propertychange',function(){
+	        if(($.trim($('.name').val())!=="")&&($.trim($('.linkman').val())!=="")&&($.trim($('.tel').val())!=="")){
+	        	$('.i_main button').css({'background':'url(img/btn_tijiao_default.png)','background-size': 'cover'});
+	        	$('.i_main button').attr("disabled",false); 
+		    }else{
+		        $('.i_main button').css({'background':'url(img/btn_tijiao_disable.png)','background-size': 'cover'});  
+	        	$('.i_main button').attr("disabled",true);
+	        }
+	    });
+		//公司信息填写
+	    $('.hrefbtn').click(function(){
+			$('.CompanyPersonnel').animate({right:"0"},"fast")
+		})
+	    $('.CompanyPersonnel .back').click(function(){
+			$('.CompanyPersonnel').animate({right:"-100%"},"fast")
+		})
+	</script>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>公司详情</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/js.js" ></script>
+		<style>
+			input::-moz-placeholder,textarea::-moz-placeholder{
+				color: #a7a7a7;
+			}
+			input::-ms-input-placeholder,textarea::-ms-input-placeholder{
+				color: #a7a7a7;
+			}
+			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+				color: #a7a7a7;
+			}
+			body{
+				background: #EFEFF4;
+				overflow-x: hidden;
+			}
+			.headerbg{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				background: url(img/headerbg.png);
+				background-size: cover;
+			}
+			.headerbg .searchback{
+				width: 25%;
+				height: 100%;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				color: white;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.headerbg .searchback img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.headerbg h4{
+				line-height: 44px;
+				text-align: center;
+				color: white;
+			}
+			.main{
+				width: 100%;
+				padding-top: 54px;
+			}
+			.ci_nature{
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			.cm_list{
+				width: 90%;
+				padding: 0 5%;
+				height: 44px;
+				line-height: 44px;
+				border-bottom: 1px solid #efeff4;
+				font-size: 14px;
+				color: #262626;
+				background-color: #fff;
+			}
+			.cm_list img{
+				float: left;
+				width: 15px;
+				margin-right: 18px;
+				margin-top: 13px;
+			}
+			.cm_list:last-child{
+				border: 0;
+			}
+			.cm_list label{
+				font-size: 15px;
+				font-weight: bold;
+				color: #262626;
+			}
+			.cm_list span{
+				float: right;
+				color: #bdbcbc;
+				font-weight: bold;
+			}
+			.cm_list h4{
+				float: right;
+				color: #262626;
+			}
+			.cm_list a{
+				width: 100%;
+				display: inline-block;
+				background: url(img/icon_jiantou_nor.png) no-repeat right;
+				background-size: 8px;
+				color: #262626;
+			}
+			.cm_list a font{
+				float: right;
+				background: #fff;
+				color: #bdbcbc;
+			}
+			.cin_list{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				border-bottom: 1px solid #efeff4;
+				padding: 0 5%;
+				background: white;
+			}
+			.cin_list label{
+				font-size: 15px;
+				font-weight: bold;
+				display: inline-block;
+			}
+			.cin_list span{
+				float: right;
+				text-align: right;
+				color: #BDBCBC;
+				font-size: 14px;
+			}
+			.gaoguan{
+				width: 30%;
+				height: 44px;
+				line-height: 44px;
+				text-align: right;
+				float: right;
+			}
+			.gaoguan img{
+				width: 8px;
+			}
+			.enclosure{
+				width: 100%;
+				margin-bottom: 90px;
+			}
+			.enclosure h4{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				padding: 0 5%;
+				font-size: 15px;
+				background-color: white;
+			}
+			.enclosurelist{
+				width: 100%;
+				overflow: hidden;
+			}
+			.enclosurelist a{
+				width: 32.9%;
+				height: 100px;
+				float: left;
+				text-align: center;
+				display: inline-block;
+				border-bottom: 2px solid #EFEFF4;
+				border-right: 2px solid #EFEFF4;
+				color: #474747;
+				font-size: 13px;
+				background-color: white;
+			}
+			.enclosurelist a:nth-of-type(3),
+			.enclosurelist a:nth-of-type(6),
+			.enclosurelist a:nth-of-type(9),
+			.enclosurelist a:nth-of-type(12),
+			.enclosurelist a:nth-of-type(15){
+				border-right: 0;
+			}
+			.enclosurelist a:nth-of-type(16){
+				border-bottom: 0;
+			}
+			.enclosurelist a:nth-of-type(1),
+			.enclosurelist a:nth-of-type(2),
+			.enclosurelist a:nth-of-type(3){
+				border-top: 2px solid #EFEFF4;
+			}
+			.enclosurelist a img{
+				width: 30px;
+				margin: 20px auto 5px auto;
+			}
+			.enclosurelist a label{
+				width: 100%;
+				display: inline-block;
+			}
+			.modifycontent{
+				width: 100%;
+				height: 100%;
+				background-color: #EFEFF4;
+				z-index: 102;
+				position: absolute;
+				top: 0;
+				right: -100%;
+			}
+			.mc_title{
+				width: 90%;
+				height: 44px;
+				background: white;
+				padding: 0 5%;
+				_position: relative;				
+				background: url(img/headerbg.png);
+				background-size: cover;
+				color: white;
+			}
+			.mc_title .mc_back{
+				width: 25%;
+				height: 44px;
+				line-height: 44px;
+				position: absolute;
+				left: 5%;
+				display: inline-block;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.mc_title .mc_back img{
+				width: 10px;
+				margin: 13px auto;
+				margin-right: 8px;
+				float: left;
+			}
+			.mc_title h4{
+				line-height: 44px;
+				text-align: center;
+			}
+			.mc_main{
+				width: 100%;
+				margin-top: 10px;
+			}
+			.mc_list{
+				width: 90%;
+				height: 44px;
+				line-height: 44px;
+				padding: 0 5%;
+				background-color: white;
+				border-bottom: 1px solid #f7f7f7;
+			}
+			.mc_list label{
+				font-weight: bold;
+				font-size: 15px;
+				color: #262626;
+			}
+			.mc_list span{
+				float: right;
+				text-align: right;
+				color: #B2B2B2;
+				font-size: 14px;
+			}
+			.duties{
+				margin: 10px 0;
+			}
+			.Disassociate{
+				width: 100%;
+				text-align: center;
+				margin: 50px 0;
+			}
+			.DisassociateBtn{
+				width: 90%;
+				margin: 0 auto;
+				text-align: center;
+				height: 45px;
+				line-height: 45px;
+				background: #f04949;
+				color: #fff;
+				display: inline-block;
+				border-radius: 5px;
+			}.tips_btn{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;				
+				border-top: 1px solid #efeff4;
+				margin-top: 16px;
+			}
+			.tips_btn a{
+				width: 48.5%;
+				display: inline-block;
+				text-align: center;
+				font-weight: bold;
+				color: #676767;
+				font-size: 14px;
+			}
+			.tips_btn .Agreeapply{
+				color: #1378f6;
+				border-left: 1px solid #efeff4;
+			}
+		</style>
+	</head>
+	<body>		
+		<header class="headerbg">
+			<a class="searchback" href="mine.html"><img src="img/icon_jiantou_white.png"/></a>
+			<h4>公司详情</h4>
+		</header>
+		<div class="main">
+			<!--公司性质-->
+			<div class="ci_nature">
+				<div class="cm_list">
+					<img src="img/icon_gongsimingcheng_nor.png"/>
+					<label>公司名称</label>
+					<span>疯狂的小猫有限公司</span>
+				</div>
+				<div class="cm_list">
+					<a href="companyimformation.html">
+						<img src="img/icon_neirong_nor.png"/>
+						<label>公司信息</label>
+					</a>					
+				</div>
+				<div class="cm_list duties">
+					<img src="img/zhiwu_icon.png"/>
+					<label>我的职务</label>
+					<h4>财务负责人</h4>
+				</div>
+				<div class="cm_list duties">
+					<a href="affiliatedaccount.html">
+						<img src="img/guanlian_icon.png"/>
+						<label>关联账号</label>
+					</a>					
+				</div>
+				<div class="cm_list">
+					<a href="">
+						<img src="img/kaipiao_icon.png"/>
+						<label>我要开发票</label>
+					</a>					
+				</div>
+				<div class="cm_list">
+					<a href="servicetime.html">
+						<img src="img/shijian_icon.png"/>
+						<label>企业服务起止时间</label>
+					</a>					
+				</div>
+			</div>
+			<!--附件-->
+			<div class="enclosure">
+				<h4>附件</h4>
+				<div class="enclosurelist">
+					<a href="Companyinformation/yyzz.html">
+						<img src="img/icon_sheli_nor.png"/>
+						<label>营业执照</label>
+					</a>
+					<a href="Companyinformation/sltzs.html">
+						<img src="img/icon_biangengtongzhishu_nor.png"/>
+						<label>设立通知书</label>
+					</a>
+					<a href="Companyinformation/bgtzs.html">
+						<img src="img/icon_zhizhao_nor.png"/>
+						<label>变更通知书</label>
+					</a>
+					<a href="Companyinformation/yhkhxkz.html">
+						<img src="img/icon_yinhang_nor.png"/>
+						<label>银行开户许可证</label>
+					</a>
+					<a href="Companyinformation/sfxysqb.html">
+						<img src="img/icon_sanfangxieyi_nor.png"/>
+						<label>三方协议申请表</label>
+					</a>
+					<a href="Companyinformation/dzdcxmmd.html">
+						<img src="img/icon_duizhangmimadan_nor.png"/>
+						<label>对账单查询密码单</label>
+					</a>
+					<a href="Companyinformation/zzssqb.html">
+						<img src="img/icon_zengzhishui_nor.png"/>
+						<label>增值税申请表</label>
+					</a>
+					<a href="Companyinformation/qysds.html">
+						<img src="img/icon_qiyesuodeshui_nor.png"/>
+						<label>企业所得税</label>
+					</a>
+					<a href="Companyinformation/gssqb.html">
+						<img src="img/icon_geshui_nor.png"/>
+						<label>个税申请表</label>
+					</a>
+					<a href="Companyinformation/yhssqb.html">
+						<img src="img/icon_yinhuashui_nor.png"/>
+						<label>印花税申请表</label>
+					</a>
+					<a href="Companyinformation/cjsjyfjs.html">
+						<img src="img/icon_chengjianshui_nor.png"/>
+						<label>城建税、教育附加税</label>
+					</a>
+					<a href="Companyinformation/zcfzb.html">
+						<img src="img/icon_zichan_nor.png"/>
+						<label>资产负债表</label>
+					</a>
+					<a href="Companyinformation/lrb.html">
+						<img src="img/icon_lirunbiao_nor.png"/>
+						<label>利润表</label>
+					</a>
+					<a href="Companyinformation/sbxxb.html">
+						<img src="img/icon_shebaoxinxi_nor.png"/>
+						<label>社保信息表</label>
+					</a>
+					<a href="Companyinformation/gjjxxb.html">
+						<img src="img/icon_gongjijin_nor.png"/>
+						<label>公积金</label>
+					</a>
+					<a href="Companyinformation/whsyjsf.html">
+						<img src="img/icon_wenhuashiye_nor.png"/>
+						<label>文化事业建设费 </label>
+					</a>
+				</div>
+			</div>
+			<!--解除关联-->
+			<div class="Disassociate">
+				<a class="DisassociateBtn" onclick="applyopen()">解除关联</a>
+			</div>
+		</div>
+		<!--解除关联-->
+		<div class="Tips_bg" id="Tips_bg1"></div>
+		<div class="Tips" id="Tips1">
+			<div class="tipsmain">
+				<h4 id="already">解除关联</h4>
+				<label id="alcontent">是否解除关联公司，从公司关联账号中删除？</label>
+				<div class="tips_btn">
+					<a class="refuseapply" onclick="applyclose()">取消</a>
+					<a class="Agreeapply">确认</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//点击解除关联
+		function applyopen(){
+			$("#Tips_bg1").show();
+			var top = ($(window).height() - $("#Tips1").height()) / 2;
+			var scrollTop = $(document).scrollTop();
+			$("#Tips1").css({
+				'top':  top+scrollTop,
+			}).show();
+		}
+		function applyclose(){
+			$(".Tips_bg").hide();
+			$(".Tips").hide();
+		}
+	</script>
+	
+</html>
